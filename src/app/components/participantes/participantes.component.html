@@ -1,0 +1,39 @@
+<mat-grid-list cols="6" rowHeight="200px" *ngIf="deviceLg || deviceXl">
+
+<mat-grid-tile *ngFor="let participante of participantes">
+
+    <app-participante [activo]="activo" [participante]="participante" [usuarioTejido]="tejido.usuario" [usuario]="usuario" (participanteBorrado)="borrarParticipante($event)"></app-participante>
+
+</mat-grid-tile>
+
+</mat-grid-list>
+
+<mat-grid-list cols="3" rowHeight="200px" *ngIf="deviceMd">
+
+    <mat-grid-tile *ngFor="let participante of participantes">
+    
+        <app-participante [activo]="activo" [participante]="participante" [usuarioTejido]="tejido.usuario" [usuario]="usuario" (participanteBorrado)="borrarParticipante($event)"></app-participante>
+    
+    </mat-grid-tile>
+    
+    </mat-grid-list>
+
+    <mat-grid-list cols="2" rowHeight="200px" *ngIf="deviceSm">
+
+        <mat-grid-tile *ngFor="let participante of participantes">
+        
+            <app-participante [activo]="activo" [participante]="participante" [usuarioTejido]="tejido.usuario" [usuario]="usuario" (participanteBorrado)="borrarParticipante($event)"></app-participante>
+        
+        </mat-grid-tile>
+        
+        </mat-grid-list>
+
+        <mat-grid-list cols="1" rowHeight="200px" *ngIf="deviceXs">
+
+            <mat-grid-tile *ngFor="let participante of participantes">
+            
+                <app-participante [activo]="activo" [participante]="participante" [usuarioTejido]="tejido.usuario" [usuario]="usuario" (participanteBorrado)="borrarParticipante($event)"></app-participante>
+            
+            </mat-grid-tile>
+            
+            </mat-grid-list>          

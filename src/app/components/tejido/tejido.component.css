@@ -1,0 +1,45 @@
+.example-card-sidenav {
+    max-width: auto;
+    /* background: linear-gradient(to right, #6441a5, #2a0845); */
+    overflow: unset !important;
+    color: purple;
+    -webkit-box-shadow: 0 2px 10px -5px rgba(0,0,0,0.5);
+    box-shadow: 0 6px 10px -5px rgba(0, 195, 255, 0.87);
+    border-top: 2px solid #7000FF;
+}
+
+.example-header-image {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+}
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+
+  .gradient {
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: aliceblue;
+  }
+  
+  .blueColor {
+    background: #0575E6;
+    color: aliceblue;
+  }
+
+  .greenColor {
+    background: rgb(255, 136, 0);
+    color: aliceblue;
+  }
+
+ mat-label{
+   color: #7000FF;
+ } 

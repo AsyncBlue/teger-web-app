@@ -1,0 +1,218 @@
+<mat-grid-list cols="3" rowHeight="500px" *ngIf="deviceLg || deviceXl"> 
+
+    <mat-grid-tile>
+
+        <!-- PERFIL USUARIO -->
+        <mat-card class="example-card">
+            <mat-card-header>
+                <img mat-card-avatar class="example-header-image" src="assets/avatars/{{usuario.avatar}}">
+                <mat-card-title class="capitalize">{{ usuario.nombre }} {{ usuario.apellido }}</mat-card-title>
+                <mat-card-subtitle>{{ usuario.email }}</mat-card-subtitle>
+            </mat-card-header>
+                <img mat-card-image src="assets/avatars/{{usuario.avatar}}">
+        <!--  <mat-card-actions class="center-actions-card">
+                <button mat-button color="primary" [routerLink]="['/dashboard/mi-perfil']" (click)="opened=!opened">Editar Perfil</button>
+            </mat-card-actions> -->
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos">
+
+            <mat-card-header>
+
+                <mat-card-title>Crear Tejido</mat-card-title>
+
+            </mat-card-header>
+
+            <form (ngSubmit)="crearEvento(fCrearEvento)" #fCrearEvento="ngForm" class="example-form"> 
+
+                <mat-form-field class="example-full-width">
+            
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" name="nombre" required [(ngModel)]="evento.nombre">
+    
+                </mat-form-field>
+                
+                <mat-form-field class="example-full-width">
+        
+                    <mat-label>Pregunta Inignia</mat-label>
+                    <input matInput type="text" name="pregunta" required [(ngModel)]="evento.pregunta">
+        
+                </mat-form-field>
+                
+                <mat-form-field class="example-full-width">
+        
+                    <mat-label>Cantidad de Enlaces Maximos por Persona</mat-label>
+                    <input matInput type="number" name="maxEnlaces" required [(ngModel)]="evento.maxEnlaces">
+        
+                </mat-form-field>  
+            
+                <br><br>
+                <button type="submit" mat-raised-button color="primary">Crear Tejido</button>
+            
+            </form>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos">
+
+            <mat-card-header>
+
+                <mat-card-title>Unirse a un Tejido</mat-card-title>
+
+            </mat-card-header>
+
+                <form (ngSubmit)="unirseEvento(fUnirseEvento)" #fUnirseEvento="ngForm" class="example-form"> 
+                    <mat-form-field class="example-full-width">
+                
+                        <mat-label>Codigo del Tejido</mat-label>
+                        <input matInput type="text" name="_id" required [(ngModel)]="eventoID._id">
+        
+                    </mat-form-field>
+                    
+                    <br><br>
+                    <button type="submit" mat-raised-button color="primary">Unirse</button>
+                </form>
+
+        </mat-card>
+
+    </mat-grid-tile>
+ 
+
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="350px" *ngIf="deviceXs || deviceMd || deviceSm"> 
+
+    <mat-grid-tile>
+
+        <!-- PERFIL USUARIO -->
+        <mat-card class="example-card-xs">
+            <mat-card-header>
+                <img mat-card-avatar class="example-header-image" src="assets/avatars/{{usuario.avatar}}">
+                <mat-card-title class="capitalize">{{ usuario.nombre }} {{ usuario.apellido }}</mat-card-title>
+                <mat-card-subtitle>{{ usuario.email }}</mat-card-subtitle>
+            </mat-card-header>
+                <img mat-card-image class="image-xs" src="assets/avatars/{{usuario.avatar}}">
+        <!--  <mat-card-actions class="center-actions-card">
+                <button mat-button color="primary" [routerLink]="['/dashboard/mi-perfil']" (click)="opened=!opened">Editar Perfil</button>
+            </mat-card-actions> -->
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos-xs">
+
+            <mat-card-header>
+
+                <mat-card-title>Crear Tejido</mat-card-title>
+
+            </mat-card-header>
+
+            <form (ngSubmit)="crearEvento(fCrearEvento)" #fCrearEvento="ngForm" class="example-form"> 
+
+                <mat-form-field class="example-full-width">
+            
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" name="nombre" required [(ngModel)]="evento.nombre">
+    
+                </mat-form-field>
+                
+                <mat-form-field class="example-full-width">
+        
+                    <mat-label>Pregunta Inignia</mat-label>
+                    <input matInput type="text" name="pregunta" required [(ngModel)]="evento.pregunta">
+        
+                </mat-form-field>
+                
+                <mat-form-field class="example-full-width">
+        
+                    <mat-label>Cantidad de Enlaces Maximos por Persona</mat-label>
+                    <input matInput type="number" name="maxEnlaces" required [(ngModel)]="evento.maxEnlaces">
+        
+                </mat-form-field>  
+            
+                <br><br>
+                <button type="submit" mat-raised-button color="primary">Crear Tejido</button>
+            
+            </form>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos-xs">
+
+            <mat-card-header>
+
+                <mat-card-title>Unirse a un Tejido</mat-card-title>
+
+            </mat-card-header>
+
+                <form (ngSubmit)="unirseEvento(fUnirseEvento)" #fUnirseEvento="ngForm" class="example-form"> 
+                    <mat-form-field class="example-full-width">
+                
+                        <mat-label>Codigo del Tejido</mat-label>
+                        <input matInput type="text" name="_id" required [(ngModel)]="eventoID._id">
+        
+                    </mat-form-field>
+                    
+                    <br><br>
+                    <button type="submit" mat-raised-button color="primary">Unirse</button>
+                </form>
+
+        </mat-card>
+
+    </mat-grid-tile>
+ 
+
+</mat-grid-list>
+
+
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
+<div> 
+
+    <mat-grid-list cols="1" rowHeight="35px"> 
+
+        <mat-grid-tile>
+
+            <mat-label color="primary"> <h2>Ultimos Tejidos</h2> </mat-label>
+            
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Propios"> 
+    
+            <app-eventos [eventos]="ultimosEventos" [usuario]="usuario"></app-eventos>
+    
+        </mat-tab>
+        <mat-tab label="Participe en ellos"> 
+    
+            <app-eventos [eventos]="ultimosUnidos" [usuario]="usuario"></app-eventos>
+        
+        </mat-tab>
+    </mat-tab-group>
+
+    
+
+</div>
+
+
+

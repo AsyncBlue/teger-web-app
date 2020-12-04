@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>¿Seguro que desea eliminar el tejido?</h2>
+
+<!-- <mat-dialog-content class="mat-typography">
+
+    Saliste del tejido sin finalizarlo. Recuerda volver al tejido para finalizarlo.
+
+</mat-dialog-content> -->
+<mat-dialog-actions align="end">
+     <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="primary">Si, eliminar</button>
+</mat-dialog-actions>

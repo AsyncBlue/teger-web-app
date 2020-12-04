@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>¿Seguro que desea guardar sus enlaces?</h2>
+
+<mat-dialog-content class="mat-typography">
+
+    Luego de guardar sus enlaces no podra volver a seleccionar.
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="primary">Aceptar</button>
+</mat-dialog-actions>

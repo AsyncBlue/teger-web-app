@@ -1,0 +1,315 @@
+<mat-grid-list cols="3" rowHeight="200px" *ngIf="deviceLg || deviceXl || deviceMd">
+
+    <mat-grid-tile>
+
+        <mat-card class="example-card-sidenav" *ngIf="usuario._id===tejido.usuario && tejido.activo === true">
+
+            <mat-card-header>
+
+                <img  class="example-header-image" src="assets/avatars/compartir.png">
+                <mat-card-title>Compartir Tejido</mat-card-title>
+                <mat-card-subtitle>{{ evento.nombre }}</mat-card-subtitle>
+
+            </mat-card-header>
+
+            <mat-card-content>
+
+                <button type="submit" mat-raised-button color="primary" (click)="copyText(evento._id)">Copiar Codigo</button>
+
+            </mat-card-content>
+
+        </mat-card>
+
+        <mat-card class="example-card-sidenav" *ngIf="usuario._id != tejido.usuario">
+
+            <mat-card-header>
+        
+                <img mat-card-avatar class="example-header-image" src="assets/avatars/{{duenoDelTejido.avatar}}">
+        
+                <mat-card-title>{{ duenoDelTejido.nombre }} {{ duenoDelTejido.apellido}}</mat-card-title>
+                <mat-card-subtitle>{{ duenoDelTejido.email }}</mat-card-subtitle>
+        
+        
+            </mat-card-header>
+        
+         
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="example-card-sidenav">
+
+            <mat-card-header>
+
+                <mat-card-title>{{ evento.nombre }}</mat-card-title>
+                <mat-card-subtitle>{{ evento.created }}</mat-card-subtitle>
+
+            </mat-card-header>
+
+            <mat-card-content>
+
+                {{ evento.pregunta }}
+
+            </mat-card-content>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="activo === true && usuario._id===tejido.usuario" >
+
+        <mat-list role="list">
+            <mat-list-item> <button mat-raised-button (click)="finalizarTejido()" class="blueColor">Finalizar Tejido</button> </mat-list-item> <br>
+            <mat-divider></mat-divider> <br>
+            <mat-list-item> <button mat-raised-button (click)="creadorUnirse(usuario, tejido._id)" class="greenColor">Participar</button> </mat-list-item>
+          </mat-list>
+
+    </mat-grid-tile>
+
+ <!--    <mat-grid-tile *ngIf="activo === false && usuario._id===tejido.usuario">
+
+        <button mat-raised-button color="warn" (click)="finalizarTejido()">Reactivar Tejido</button>
+
+    </mat-grid-tile> -->
+
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="200px" *ngIf="deviceSm || deviceXs">
+
+    <mat-grid-tile>
+
+        <mat-card class="example-card-sidenav" *ngIf="usuario._id===tejido.usuario && tejido.activo === true">
+
+            <mat-card-header>
+
+                <img  class="example-header-image" src="assets/avatars/compartir.png">
+                <mat-card-title>Compartir Tejido</mat-card-title>
+                <mat-card-subtitle>{{ evento.nombre }}</mat-card-subtitle>
+
+            </mat-card-header>
+
+            <mat-card-content>
+
+                <button type="submit" mat-raised-button color="primary" (click)="copyText(evento._id)">Copiar Codigo</button>
+
+            </mat-card-content>
+
+        </mat-card>
+
+        <mat-card class="example-card-sidenav" *ngIf="usuario._id != tejido.usuario">
+
+            <mat-card-header>
+        
+                <img mat-card-avatar class="example-header-image" src="assets/avatars/{{duenoDelTejido.avatar}}">
+        
+                <mat-card-title>{{ duenoDelTejido.nombre }} {{ duenoDelTejido.apellido}}</mat-card-title>
+                <mat-card-subtitle>{{ duenoDelTejido.email }}</mat-card-subtitle>
+        
+        
+            </mat-card-header>
+        
+         
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="example-card-sidenav">
+
+            <mat-card-header>
+
+                <mat-card-title>{{ evento.nombre }}</mat-card-title>
+                <mat-card-subtitle>{{ evento.created }}</mat-card-subtitle>
+
+            </mat-card-header>
+
+            <mat-card-content>
+
+                {{ evento.pregunta }}
+
+            </mat-card-content>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="activo === true && usuario._id===tejido.usuario" >
+
+        <mat-list role="list">
+            <mat-list-item> <button mat-raised-button (click)="finalizarTejido()" class="blueColor">Finalizar Tejido</button> </mat-list-item> <br>
+            <mat-divider></mat-divider> <br>
+            <mat-list-item> <button mat-raised-button (click)="creadorUnirse(usuario, tejido._id)" class="greenColor">Participar</button> </mat-list-item>
+          </mat-list>
+
+    </mat-grid-tile>
+
+ <!--    <mat-grid-tile *ngIf="activo === false && usuario._id===tejido.usuario">
+
+        <button mat-raised-button color="warn" (click)="finalizarTejido()">Reactivar Tejido</button>
+
+    </mat-grid-tile> -->
+
+</mat-grid-list>
+
+
+<mat-tab-group mat-align-tabs="center" backgroundColor="primary" color="primary" (selectedTabChange)="onLinkClick($event)">
+
+    <mat-tab label="Participantes">
+
+        <mat-grid-list cols="1" rowHeight="100px" *ngIf="usuario._id===tejido.usuario && enlaces===false && tejido.activo===true">
+
+            <mat-grid-tile>
+
+              <button mat-raised-button color="primary" (click)="iniciarEnlaces()" [disabled]="enlaces===true || activo===false">Iniciar Seleccion de Enlaces</button>
+
+            </mat-grid-tile>
+            
+          </mat-grid-list>  
+  
+        <app-participantes [participantes]="participantes" [tejido]="tejido" [usuario]="usuario" [activo]="activo"></app-participantes>
+  
+    </mat-tab>
+  
+    <mat-tab label="Seleccionar" *ngIf="enlaces === true && activo===true">
+  
+            <mat-grid-list cols="1" rowHeight="60px" *ngIf="enlaces === true && activo===true">
+
+                <mat-grid-tile> <mat-label><h2>{{maxEnlaces}} Enlaces Máximo</h2></mat-label> </mat-grid-tile>
+
+              <mat-grid-tile>
+
+                <button mat-raised-button color="primary" (click)="guardarVotos()" [disabled]="usuarioVoto===true || dataGraf.length > maxEnlaces">Guardar Enlaces</button>
+                
+              </mat-grid-tile>
+
+              
+            </mat-grid-list>  
+  
+            <mat-grid-list cols="6" rowHeight="200px" *ngIf="deviceLg || deviceXl">
+  
+                <mat-grid-tile *ngFor="let participante of participantes">
+  
+                    <mat-card class="example-card-sidenav">
+  
+                        <mat-card-header>
+                    
+                            <img mat-card-avatar class="example-header-image" src="assets/avatars/{{participante.avatar}}">
+                    
+                            <mat-card-title>{{ participante.nombre }} {{ participante.apellido }}</mat-card-title>
+                            <mat-card-subtitle>{{ participante.email }}</mat-card-subtitle>
+                    
+                        </mat-card-header>
+                    
+                        <mat-card-actions *ngIf="activo===true && usuarioVoto===false">
+                    
+                                    <mat-checkbox *ngIf="usuario._id != participante._id" class="example-margin" [checked]="participante.checked" (change)="onChange(usuario.nombre,participante.nombre, participante)">Seleccionar</mat-checkbox>
+
+                        </mat-card-actions>
+                    
+                    </mat-card>
+  
+                </mat-grid-tile>
+  
+  
+            </mat-grid-list>
+            
+            <mat-grid-list cols="3" rowHeight="200px" *ngIf="deviceMd">
+  
+                <mat-grid-tile *ngFor="let participante of participantes">
+  
+                    <mat-card class="example-card-sidenav">
+  
+                        <mat-card-header>
+                    
+                            <img mat-card-avatar class="example-header-image" src="assets/avatars/{{participante.avatar}}">
+                    
+                            <mat-card-title>{{ participante.nombre }} {{ participante.apellido }}</mat-card-title>
+                            <mat-card-subtitle>{{ participante.email }}</mat-card-subtitle>
+                    
+                        </mat-card-header>
+                    
+                        <mat-card-actions *ngIf="activo===true && usuarioVoto===false">
+                    
+                                    <mat-checkbox *ngIf="usuario._id != participante._id" class="example-margin" [checked]="participante.checked" (change)="onChange(usuario.nombre,participante.nombre, participante)">Seleccionar</mat-checkbox>
+
+                        </mat-card-actions>
+                    
+                    </mat-card>
+  
+                </mat-grid-tile>
+  
+  
+            </mat-grid-list>
+            
+            <mat-grid-list cols="2" rowHeight="200px" *ngIf="deviceSm">
+  
+                <mat-grid-tile *ngFor="let participante of participantes">
+  
+                    <mat-card class="example-card-sidenav">
+  
+                        <mat-card-header>
+                    
+                            <img mat-card-avatar class="example-header-image" src="assets/avatars/{{participante.avatar}}">
+                    
+                            <mat-card-title>{{ participante.nombre }} {{ participante.apellido }}</mat-card-title>
+                            <mat-card-subtitle>{{ participante.email }}</mat-card-subtitle>
+                    
+                        </mat-card-header>
+                    
+                        <mat-card-actions *ngIf="activo===true && usuarioVoto===false">
+                    
+                                    <mat-checkbox *ngIf="usuario._id != participante._id" class="example-margin" [checked]="participante.checked" (change)="onChange(usuario.nombre,participante.nombre, participante)">Seleccionar</mat-checkbox>
+
+                        </mat-card-actions>
+                    
+                    </mat-card>
+  
+                </mat-grid-tile>
+  
+  
+            </mat-grid-list>
+            
+            <mat-grid-list cols="1" rowHeight="200px" *ngIf="deviceXs">
+  
+                <mat-grid-tile *ngFor="let participante of participantes">
+  
+                    <mat-card class="example-card-sidenav">
+  
+                        <mat-card-header>
+                    
+                            <img mat-card-avatar class="example-header-image" src="assets/avatars/{{participante.avatar}}">
+                    
+                            <mat-card-title>{{ participante.nombre }} {{ participante.apellido }}</mat-card-title>
+                            <mat-card-subtitle>{{ participante.email }}</mat-card-subtitle>
+                    
+                        </mat-card-header>
+                    
+                        <mat-card-actions *ngIf="activo===true && usuarioVoto===false">
+                    
+                                    <mat-checkbox *ngIf="usuario._id != participante._id" class="example-margin" [checked]="participante.checked" (change)="onChange(usuario.nombre,participante.nombre, participante)">Seleccionar</mat-checkbox>
+
+                        </mat-card-actions>
+                    
+                    </mat-card>
+  
+                </mat-grid-tile>
+  
+  
+            </mat-grid-list> 
+  
+    </mat-tab>
+    
+    <mat-tab label="Tejido" *ngIf="usuarioVoto===true || usuario._id===tejido.usuario || activo===false">
+  
+        <app-networkgraph [evento]="evento" [tejido]="tejido" [activo]="activo"></app-networkgraph>
+  
+    </mat-tab>
+  
+  </mat-tab-group>
+
+
+
+

@@ -1,0 +1,33 @@
+img {
+    width: 30%;
+  /*   margin-left: -65%;
+    margin-bottom: 150%; */
+    margin-left: -50%;
+}
+
+/* .example-card {
+    width: 80%;
+    overflow: unset !important;
+    color: purple;
+    -webkit-box-shadow: 0 2px 10px -5px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px -5px rgba(55, 0, 255, 0.87);
+    border-top: 2px solid #7000FF;
+}
+
+
+.example-radio-group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+} */
+  
+/* .example-radio-button {
+    margin: 1px;
+} */
+
+.centeR {
+   /*  display: flex;
+    align-items: center;
+    justify-content: center; */
+    text-align: center;
+}

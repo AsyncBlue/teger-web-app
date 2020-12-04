@@ -1,0 +1,17 @@
+<div class="centeR">
+      <mat-radio-group [(ngModel)]="nuevoAvatar" class="example-radio-group">
+
+        <mat-radio-button *ngFor="let avatar of avatars" [value]="avatar.img" class="example-radio-button" color="primary">
+       
+          <img mat-card-image src="assets/avatars/{{avatar.img}}">
+     
+        </mat-radio-button>
+
+
+      </mat-radio-group>
+
+      <br>
+      <button mat-raised-button color="primary" (click)="actualizarAvatar()">Actualizar Avatar</button>
+   
+</div>
+

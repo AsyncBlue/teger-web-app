@@ -1,0 +1,28 @@
+<mat-card class="example-card-sidenav">
+
+    <mat-card-header>
+
+        <img mat-card-avatar class="example-header-image" src="assets/avatars/{{evento.usuario.avatar}}">  
+        <button mat-button [routerLink]="['/dashboard/tejido', evento._id]" class="ir">
+            <mat-icon>forward</mat-icon>
+        </button>
+        <mat-card-title>{{ evento.nombre }}</mat-card-title>
+        <mat-card-subtitle>{{ evento.created }}</mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content>
+
+        {{evento.pregunta}}
+    
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+       
+        <button mat-icon-button color="warn" (click)="borrarEvento()" *ngIf="usuario._id === evento.usuario._id"><mat-icon>delete</mat-icon> </button>
+        <div class="spacer"></div>
+        <mat-label *ngIf="usuario._id != evento.usuario._id"><mat-icon>face</mat-icon> {{evento.usuario.nombre}} {{ evento.usuario.apellido }}</mat-label>
+
+    </mat-card-actions>
+
+</mat-card>

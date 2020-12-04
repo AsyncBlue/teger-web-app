@@ -1,0 +1,98 @@
+<body class="gradient">
+
+<!-- <app-navbar></app-navbar>   -->
+
+<mat-grid-list cols="1" rowHeight="900px">
+<mat-grid-tile>   
+<mat-card class="card-datos">
+
+  <mat-tab-group> 
+
+    <mat-tab label="Iniciar Sesion">
+        
+        <br>
+
+        <form (ngSubmit)="login(fLogin)" #fLogin="ngForm" class="example-form"> 
+
+          <mat-form-field class="example-full-width">
+      
+            <mat-label>Correo</mat-label>
+            <input matInput type="email" name="email" required [(ngModel)]="loginUser.email" [formControl]="emailFormControl">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Porfavor ingrese una dirección de correo valida.
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              El correo es <strong>requerido</strong>
+            </mat-error>
+
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+   
+             <mat-label>Contraseña</mat-label>
+             <input matInput type="password" name="password" required [(ngModel)]="loginUser.password">
+
+            </mat-form-field>   
+         
+            <br><br>
+          <button type="submit" mat-raised-button color="primary">Iniciar Sesion</button>
+      
+        </form>
+      
+
+    </mat-tab>
+
+    <mat-tab label="Registrarse">
+
+      <br>
+
+        <form (ngSubmit)="registro(fRegistro)" #fRegistro="ngForm" class="example-form"> 
+
+          <mat-form-field class="example-full-width">
+      
+            <mat-label>Correo</mat-label>
+            <input type="email" matInput name="email" required [(ngModel)]="registerUser.email" [formControl]="emailFormControl">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Porfavor ingrese una dirección de correo valida.
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              El correo es <strong>requerido</strong>
+            </mat-error>
+
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+   
+             <mat-label>Nombre</mat-label>
+             <input matInput type="text" name="nombre" required [(ngModel)]="registerUser.nombre">
+
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+   
+            <mat-label>Apellido</mat-label>
+            <input matInput type="text" name="apellido" required [(ngModel)]="registerUser.apellido">
+
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+   
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" name="password" required [(ngModel)]="registerUser.password">
+
+          </mat-form-field>  
+         
+          <br><br>
+          <button type="submit" mat-raised-button color="primary">Registrarse</button>
+      
+        </form>
+
+    </mat-tab>
+
+  </mat-tab-group>
+
+</mat-card>
+</mat-grid-tile>
+</mat-grid-list>  
+
+</body>

@@ -1,0 +1,307 @@
+ <mat-grid-list cols="1" rowHeight="400px" *ngIf="deviceXl">
+
+    <mat-grid-tile>
+
+        <mat-card class="card-avatar">
+
+            <app-avatar-selector (avatarSel)="guardaNuevoAvatar($event)"></app-avatar-selector>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+ </mat-grid-list>
+
+ <mat-grid-list cols="1" rowHeight="600px" *ngIf="deviceLg">
+
+    <mat-grid-tile>
+
+        <mat-card class="card-avatar">
+
+            <app-avatar-selector (avatarSel)="guardaNuevoAvatar($event)"></app-avatar-selector>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+ </mat-grid-list>
+
+ <mat-grid-list cols="1" rowHeight="610px" *ngIf="deviceMd">
+
+    <mat-grid-tile>
+
+        <mat-card class="card-avatar">
+
+            <app-avatar-selector (avatarSel)="guardaNuevoAvatar($event)"></app-avatar-selector>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+ </mat-grid-list>
+
+ <mat-grid-list cols="1" rowHeight="900px" *ngIf="deviceSm || deviceXs">
+
+    <mat-grid-tile>
+
+        <mat-card class="card-avatar-xs">
+
+            <app-avatar-selector (avatarSel)="guardaNuevoAvatar($event)"></app-avatar-selector>
+
+        </mat-card>
+
+    </mat-grid-tile>
+
+ </mat-grid-list>
+
+ <mat-grid-list cols="3" rowHeight="500px" *ngIf="deviceXl">
+
+    <mat-grid-tile>
+
+       <mat-card class="example-card">
+
+            <mat-card-header>
+                <img mat-card-avatar class="example-header-image" src="assets/avatars/{{usuario.avatar}}">
+                <mat-card-title class="capitalize">{{ usuario.nombre }} {{ usuario.apellido }}</mat-card-title>
+                <mat-card-subtitle>{{ usuario.email }}</mat-card-subtitle>
+            </mat-card-header>
+            
+            <img mat-card-image src="assets/avatars/{{usuario.avatar}}">
+    
+        </mat-card> 
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos">
+            <mat-card-header>
+                <mat-icon color="primary">update</mat-icon>
+                <mat-card-title> Actualizar Mis datos</mat-card-title>    
+            </mat-card-header>
+        
+        <form (ngSubmit)="actualizar( fActualizar )" #fActualizar class="example-form">
+        
+           
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" name="email" required [(ngModel)]="usuario.email">
+            </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" name="pas1" required [(ngModel)]="usuario.nombre">
+            </mat-form-field>
+             
+            <mat-form-field class="example-full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" name="pas2" required [(ngModel)]="usuario.apellido">
+            </mat-form-field>
+             
+                <button type="submit" mat-raised-button color="primary">Actualizar Datos</button>
+            
+          </form>
+        
+        </mat-card>
+        
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos">
+
+            <mat-card-header>
+               <mat-icon color="primary">update</mat-icon>
+               <mat-card-title> Actualizar Contraseña</mat-card-title>    
+            </mat-card-header>
+    
+            <form (ngSubmit)="actualizarPass( fActualizarPass )" #fActualizarPass class="example-form">
+    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nueva Contraseña</mat-label>
+                    <input matInput type="password" name="pass1" required [(ngModel)]="newPass.pass1">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Repita Nueva Contraseña</mat-label>
+                    <input matInput type="password" name="pass2" required [(ngModel)]="newPass.pass2">
+                </mat-form-field>
+                
+                <button type="submit" mat-raised-button color="primary">Actualizar Contraseña</button>
+                
+            </form>
+    
+        </mat-card>
+
+    </mat-grid-tile>
+
+ </mat-grid-list>
+
+ <mat-grid-list cols="1" rowHeight="400px" *ngIf="deviceXs">
+
+    <mat-grid-tile>
+
+       <mat-card class="card-datos-xs">
+
+            <mat-card-header>
+                <img mat-card-avatar class="example-header-image" src="assets/avatars/{{usuario.avatar}}">
+                <mat-card-title class="capitalize">{{ usuario.nombre }} {{ usuario.apellido }}</mat-card-title>
+                <mat-card-subtitle>{{ usuario.email }}</mat-card-subtitle>
+            </mat-card-header>
+            
+            <img mat-card-image src="assets/avatars/{{usuario.avatar}}">
+    
+        </mat-card> 
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos-xs">
+            <mat-card-header>
+                <mat-icon color="primary">update</mat-icon>
+                <mat-card-title> Actualizar Mis datos</mat-card-title>    
+            </mat-card-header>
+        
+        <form (ngSubmit)="actualizar( fActualizar )" #fActualizar class="example-form">
+        
+           
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" name="email" required [(ngModel)]="usuario.email">
+            </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" name="pas1" required [(ngModel)]="usuario.nombre">
+            </mat-form-field>
+             
+            <mat-form-field class="example-full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" name="pas2" required [(ngModel)]="usuario.apellido">
+            </mat-form-field>
+             
+                <button type="submit" mat-raised-button color="primary">Actualizar Datos</button>
+            
+          </form>
+        
+        </mat-card>
+        
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos-xs">
+
+            <mat-card-header>
+               <mat-icon color="primary">update</mat-icon>
+               <mat-card-title> Actualizar Contraseña</mat-card-title>    
+            </mat-card-header>
+    
+            <form (ngSubmit)="actualizarPass( fActualizarPass )" #fActualizarPass class="example-form">
+    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nueva Contraseña</mat-label>
+                    <input matInput type="password" name="pass1" required [(ngModel)]="newPass.pass1">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Repita Nueva Contraseña</mat-label>
+                    <input matInput type="password" name="pass2" required [(ngModel)]="newPass.pass2">
+                </mat-form-field>
+                
+                <button type="submit" mat-raised-button color="primary">Actualizar Contraseña</button>
+                
+            </form>
+    
+        </mat-card>
+
+    </mat-grid-tile>
+
+ </mat-grid-list>
+
+ <mat-grid-list cols="3" rowHeight="400px" *ngIf="deviceMd || deviceSm || deviceLg">
+
+    <mat-grid-tile>
+
+       <mat-card class="card-datos-xs">
+
+            <mat-card-header>
+                <img mat-card-avatar class="example-header-image" src="assets/avatars/{{usuario.avatar}}">
+                <mat-card-title class="capitalize">{{ usuario.nombre }} {{ usuario.apellido }}</mat-card-title>
+                <mat-card-subtitle>{{ usuario.email }}</mat-card-subtitle>
+            </mat-card-header>
+            
+            <img mat-card-image src="assets/avatars/{{usuario.avatar}}">
+    
+        </mat-card> 
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos-xs">
+            <mat-card-header>
+                <mat-icon color="primary">update</mat-icon>
+                <mat-card-title> Actualizar Mis datos</mat-card-title>    
+            </mat-card-header>
+        
+        <form (ngSubmit)="actualizar( fActualizar )" #fActualizar class="example-form">
+        
+           
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" name="email" required [(ngModel)]="usuario.email">
+            </mat-form-field>
+              
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" name="pas1" required [(ngModel)]="usuario.nombre">
+            </mat-form-field>
+             
+            <mat-form-field class="example-full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" name="pas2" required [(ngModel)]="usuario.apellido">
+            </mat-form-field>
+             
+                <button type="submit" mat-raised-button color="primary">Actualizar Datos</button>
+            
+          </form>
+        
+        </mat-card>
+        
+
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+
+        <mat-card class="card-datos-xs">
+
+            <mat-card-header>
+               <mat-icon color="primary">update</mat-icon>
+               <mat-card-title> Actualizar Contraseña</mat-card-title>    
+            </mat-card-header>
+    
+            <form (ngSubmit)="actualizarPass( fActualizarPass )" #fActualizarPass class="example-form">
+    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nueva Contraseña</mat-label>
+                    <input matInput type="password" name="pass1" required [(ngModel)]="newPass.pass1">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <mat-label>Repita Nueva Contraseña</mat-label>
+                    <input matInput type="password" name="pass2" required [(ngModel)]="newPass.pass2">
+                </mat-form-field>
+                
+                <button type="submit" mat-raised-button color="primary">Actualizar Contraseña</button>
+                
+            </form>
+    
+        </mat-card>
+
+    </mat-grid-tile>
+
+ </mat-grid-list>
